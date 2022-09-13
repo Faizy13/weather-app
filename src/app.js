@@ -10,6 +10,9 @@ const forecast = require('./utils/forecast.js')
 
 const app = express()
 
+//FOR HEROKU OR LOCAL-MACHINE(3000)
+const port = process.env.PORT || 3000
+
 //SETTING UP DIRECTORY FOR STATIC ASSETS
 const publicDirectory = path.join(__dirname, '../public')
 app.use(express.static(publicDirectory))
@@ -120,7 +123,7 @@ app.get('*', (req, res)=>{
 
 
 
-
-app.listen(3000, ()=>{
-    console.log('Server is running on port 3000')
+//FOR LOCAL SETUP
+app.listen(port, ()=>{
+    console.log('Server is running on port '+ port)
 })

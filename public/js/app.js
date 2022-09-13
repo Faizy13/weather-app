@@ -19,7 +19,10 @@ weatherform.addEventListener('submit', (e)=>{
     message1.textContent = 'LOADING...'
     message2.textContent = ''
 
-    fetch('http://localhost:3000/weather?address='+ location).then((res)=>{
+    //FOR HEROKU, WE NEED TO CHANGE THE OLD URL
+    //http://localhost:3000/weather?address=
+    
+    fetch('/weather?address='+ location).then((res)=>{
     res.json().then((data)=>{
         if(data.error)
         {
